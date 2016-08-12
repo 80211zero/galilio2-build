@@ -15,6 +15,14 @@ RUN apt-get -q update &&\
     uuid-dev iasl subversion nasm autoconf lzop patchutils parted wget &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
+RUN apt-get -q update &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" \
+    language-pack-en-base &&\
+    apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
+
+RUN locale-gen en_US en_US.UTF-8
+RUN dpkg-reconfigure locales 
+
 # Setup basic git config
 RUN git config --global user.name "Vipin Madhavanunni"
 RUN git config --global user.email "vipmadha@gmail.com"
