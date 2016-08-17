@@ -12,7 +12,7 @@ ENV version=v1.2.1.1
 RUN apt-get -q update &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" \
     git diffstat texinfo gawk chrpath file python build-essential gcc-multilib vim-common \
-    uuid-dev iasl subversion nasm autoconf lzop patchutils parted wget &&\
+    uuid-dev iasl subversion nasm autoconf lzop patchutils parted wget screen &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 RUN apt-get -q update &&\
