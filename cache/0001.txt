@@ -1,0 +1,1 @@
+clanton_galileo_x86_64.tar.gz	https://sourceforge.net/projects/wifizero/files/cache/clanton_galileo_x86_64.tar.gz/download

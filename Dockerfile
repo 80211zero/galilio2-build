@@ -1,5 +1,5 @@
 # This Dockerfile is used to build an image containing basic stuff to be used as a Jenkins slave build node for intel galileo gen 2.
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 MAINTAINER Vipin Madhavanunni <vipmadha@gmail.com>
 
 # meta-clanton version
