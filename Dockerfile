@@ -4,6 +4,7 @@ MAINTAINER Vipin Madhavanunni <vipmadha@gmail.com>
 
 # meta-clanton version
 ENV version=v1.2.1.1
+ENV ENV LANG=en_US.UTF-8
 
 # In case you need proxy
 #RUN echo 'Acquire::http::Proxy "http://127.0.0.1:8080";' >> /etc/apt/apt.conf
@@ -21,8 +22,9 @@ RUN apt-get -q update &&\
     language-pack-en-base &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
-RUN locale-gen en_US en_US.UTF-8
-RUN dpkg-reconfigure locales 
+RUN locale-gen en_US $LANG
+RUN dpkg-reconfigure --frontend=noninteractive locales
+RUN update-locale LANGUAGE=$LANG
 
 # Setup basic git config
 RUN git config --global user.name "Vipin Madhavanunni"
